@@ -25,7 +25,7 @@ A personal fitness accountability agent that keeps you on track with your health
 
 ```bash
 # Clone the repo
-git clone https://github.com/youruser/layz.git
+git clone https://github.com/Khowabunga/layz.git
 cd layz
 
 # Install dependencies
