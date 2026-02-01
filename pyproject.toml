@@ -1,0 +1,28 @@
+[project]
+name = "layz"
+version = "0.1.0"
+description = "Personal fitness accountability agent"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.109.0",
+    "uvicorn[standard]>=0.27.0",
+    "openai-agents>=0.0.7",
+    "openai>=1.12.0",
+    "twilio>=9.0.0",
+    "firebase-admin>=6.4.0",
+    "mem0ai>=0.1.0",
+    "python-dotenv>=1.0.0",
+    "websockets>=12.0",
+    "httpx>=0.26.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-cov>=4.1.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
