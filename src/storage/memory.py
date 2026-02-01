@@ -23,7 +23,13 @@ class MemoryWrapper:
             return []
 
         results = self.client.search(query, user_id=self.user_id, limit=limit)
-        if results and results.get("results"):
+        if not results:
+            return []
+
+        # Handle both list response (new API) and dict response (old API)
+        if isinstance(results, list):
+            return [mem.get("memory", "") for mem in results if isinstance(mem, dict)]
+        elif isinstance(results, dict) and results.get("results"):
             return [mem["memory"] for mem in results["results"]]
         return []
 

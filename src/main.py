@@ -1,4 +1,7 @@
 """FastAPI application entrypoint."""
+from dotenv import load_dotenv
+load_dotenv()
+
 from fastapi import FastAPI
 
 from src.webhooks.sms import router as sms_router
