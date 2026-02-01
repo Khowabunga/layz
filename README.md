@@ -21,6 +21,35 @@ A personal fitness accountability agent that keeps you on track with your health
 - Google Cloud project with Firestore
 - Mem0 API key (optional)
 
+### Google Cloud Setup
+
+Before running the app, you need to set up Google Cloud:
+
+1. **Create a Google Cloud Project** (or use an existing one)
+   ```bash
+   gcloud projects create YOUR_PROJECT_ID
+   gcloud config set project YOUR_PROJECT_ID
+   ```
+
+2. **Enable the Firestore API**
+
+   Visit: https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=YOUR_PROJECT_ID
+
+3. **Create a Firestore Database**
+   ```bash
+   gcloud firestore databases create --location=nam5 --type=firestore-native
+   ```
+   Or via console: https://console.cloud.google.com/datastore/setup?project=YOUR_PROJECT_ID
+
+   - Choose **Native mode** (not Datastore mode)
+   - Pick a region (e.g., `nam5` for US multi-region)
+
+4. **Authenticate with Application Default Credentials**
+   ```bash
+   gcloud auth application-default login
+   gcloud auth application-default set-quota-project YOUR_PROJECT_ID
+   ```
+
 ### Setup
 
 ```bash
@@ -31,8 +60,11 @@ cd layz
 # Install dependencies
 pip install -e .
 
-# Run setup wizard
+# Run setup wizard (creates .env file)
 python setup.py
+
+# Seed Firestore with default configs
+python scripts/seed_firestore.py
 ```
 
 ### Run Locally
